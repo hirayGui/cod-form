@@ -21,7 +21,7 @@
      * @return array atualizado com novos links
      */
     public function settings_link($links){
-        $settings_link = '<a href="admin.php?page=coris_cdo_plugin">Configurações</a>';
+        $settings_link = '<a href="admin.php?page=coris-cdo-plugin">Configurações</a>';
         array_push($links, $settings_link);
         return $links;
     }

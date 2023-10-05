@@ -38,7 +38,7 @@ register_activation_hook(__FILE__, 'activate_coris_cdo_plugin');
 /**
  * Função é chamada quando plugin é desativado
  */
-function deactivate_coris_cdo__plugin(){
+function deactivate_coris_cdo_plugin(){
     Inc\base\Deactivate::deactivate();
 }
 

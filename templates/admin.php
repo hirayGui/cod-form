@@ -1,1 +1,1 @@
-<h1>Coris CDO Contrato</h1>
+<h1>Coris CDO Plugin</h1>

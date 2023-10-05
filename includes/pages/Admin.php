@@ -6,29 +6,44 @@
 
  namespace Inc\pages;
 
+ use \Inc\api\SettingsApi;
  use \Inc\base\BaseController;
+ use \Inc\api\callbacks\AdminCallbacks;
 
  class Admin extends BaseController{
+
+    public $settings;
+
+    public $callbacks;
+
+    public $pages = array();
 
     /**
      * Declarando qual função irá ser responsável pela página de configurações
      */
+
     public function register(){
-        add_action('admin_menu', array($this, 'add_admin_pages'));
+        //add_action('admin_menu', array($this, 'add_admin_pages'));
+        $this->settings = new SettingsApi();
+
+        $this->callbacks = new AdminCallbacks();
+
+        $this->setPages();
+
+        $this->settings->addPages($this->pages)->register();
     }
 
-    /**
-     * Função adiciona página de configurações para o plugin
-     */
-    public function add_admin_pages(){
-        //ordem dos parâmetros: Nome da página | Nome da página no menu lateral | Nível de permissão | slug | Função | Ícone no menu | Posição no menu
-        add_menu_page( __('Coris CDO Plugin', 'coris-cdo-plugin'), __('Coris CDO', 'coris-cdo-plugin'), 'manage_options', 'coris_cdo_plugin', array($this, 'admin_index'), 'dashicons-store', 110);
-    }
-
-    /**
-     * função chama template da página de configuração
-     */
-    public function admin_index(){
-        require_once $this->plugin_path . 'templates/admin.php';
+    public function setPages(){
+        $this->pages = array(
+            array(
+                'page_title' => 'Coris CDO Plugin',
+                'menu_title' => 'Coris CDO',
+                'capability' => 'manage_options',
+                'menu_slug' => 'coris-cdo-plugin',
+                'callback' => array($this->callbacks, 'adminDashboard'),
+                'icon_url' => 'dashicons-store',
+                'position' => 110
+            )
+        );
     }
  }

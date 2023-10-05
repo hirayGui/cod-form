@@ -1,8 +1,13 @@
 {
     "name": "gizo/coris-cdo-plugin",
-    "description": "Plugin que recebe informações de viagens do webservice coris e apresenta ao usuário.",
+    "description": "Plugin que possibilita que o sistema possa fazer requisições ao webservice coris e apresentar seus resultados ao usuário.",
     "type": "project",
     "license": "GPL",
+    "autoload": {
+        "psr-4": {
+            "Inc\\": "./includes"
+        }
+    },
     "authors": [
         {
             "name": "hiraygui",
@@ -10,8 +15,5 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}, 
-    "autoload": {
-        "psr-4": {"Inc\\": "./includes"}
-    }
+    "require": {}
 }
