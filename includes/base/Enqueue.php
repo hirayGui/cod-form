@@ -15,6 +15,6 @@
 
     function enqueue(){
         wp_enqueue_style('style', $this->plugin_url . '/assets/style.css');
-        wp_enqueue_script('script', $this->plugin_url . 'assets/script.js');
+        wp_enqueue_script('script', $this->plugin_url . '/assets/script.js');
     }
  }
