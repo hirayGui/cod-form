@@ -50,6 +50,70 @@
         if(!empty($instance['title'])){
             echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
         }
+        //form principal
+        ?>
+        <div class="main">
+            <form action="" method="post" class="form-coris">
+                <h3>Faça a cotação do seu Seguro Viagem</h3>
+
+                <div>
+                    <label for="categoria">Categoria</label>
+                    <select name="categoria" id="categoria">
+                        <option value="1">Lazer/Negócios</option>
+                        <option value="2">Intercâmbio</option>
+                        <option value="4">Cruzeiro</option>
+                    </select>
+                
+                    <label for="destino">Destino</label>
+                    <select name="destino" id="destino">
+                        <option value="1">América Latina(Exceto BRL)</option>
+                        <option value="2">Brasil</option>
+                        <option value="4">Mundo (Exceto EUA)</option>
+                        <option value="5">Mundo (Incluindo EUA)</option>
+                    </select>
+               
+                    <label for="vigencia">Tempo de estadia em dias</label>
+                    <input type="number" name="vigencia" id="vigencia" min="1" value="1">
+                </div>
+
+                <h4>Nº de passageiros</h4>
+
+                <div>
+                    <label for="pax065">Até 65 anos</label>
+                    <input type="number" name="pax065" id="pax065" min="0" max="6" value="0">
+              
+                    <label for="pax7685">De 66 a 70 anos</label>
+                    <input type="number" name="pax7685" id="pax7685" min="0" max="6" value="0">
+              
+                    <label for="pax86100">De 71 a 80 anos</label>
+                    <input type="number" name="pax86100" id="pax86100" min="0" max="6" value="0">
+                
+                    <label for="p3">De 81 a 85</label>
+                    <input type="number" name="p3" id="p3" min="0" max="6" value="0">
+                </div>
+
+                <div class="full-width">
+                    <input type="submit" value="Enviar" name="enviar">
+                </div>
+
+            </form>
+        </div>
+        <?php
+
+        //fazendo requisição após enviar dados via formulário
+        if(isset($_POST['enviar'])){
+            if($_POST['pax065'] != 0 || $_POST['pax7685'] != 0 || $_POST['pax86100'] != 0 || $_POST['p3'] != 0){
+                $categoria = $_POST['categoria'];
+                $destino = $_POST['destino'];
+                $vigencia = $_POST['vigencia'];
+                $pax065 = $_POST['pax065'];
+                $pax7685 = $_POST['pax7685'];
+                $pax86100 = $_POST['pax86100'];
+                $p3 = $_POST['p3'];
+                $user = get_option('coris_user');
+                $password = get_option('coris_password');
+            }
+        }
 
         echo $args['after_widget'];
     }
