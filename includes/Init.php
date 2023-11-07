@@ -14,9 +14,10 @@
      */
     public static function get_services(){
         return [
-            pages\Admin::class,
+            pages\Dashboard::class,
             base\Enqueue::class,
             base\SettingsLinks::class,
+            base\WidgetController::class,
         ];
     }
 

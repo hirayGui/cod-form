@@ -9,12 +9,14 @@
  use \Inc\api\SettingsApi;
  use \Inc\base\BaseController;
  use \Inc\api\callbacks\AdminCallbacks;
+ use \Inc\api\callbacks\ManagerCallbacks;
 
- class Admin extends BaseController{
+ class Dashboard extends BaseController{
 
     public $settings;
 
     public $callbacks;
+    public $callbacks_mngr;
 
     public $pages = array();
     public $subpages = array();
@@ -28,6 +30,7 @@
         $this->settings = new SettingsApi();
 
         $this->callbacks = new AdminCallbacks();
+        $this->callbacks_mngr = new ManagerCallbacks();
 
         $this->setPages();
         $this->setSubPages();
@@ -76,9 +79,18 @@
             ),
             array(
                 'option_group' => 'coris_cdo_plugin_settings',
-                'option_name' => 'coris_password'
+                'option_name' => 'coris_password',
+                'callback' => array($this->callbacks, 'corisCdoOptionsGroup')
             )
         );
+
+        foreach($this->managers as $key => $value){
+            $args[] = array(
+                'option_group' => 'coris_cdo_plugin_settings',
+                'option_name' => $key,
+                'callback' => array($this->callbacks_mngr, 'cehckboxSanitize')
+            ); 
+        }
 
         $this->settings->setSettings($args);
     }
@@ -88,7 +100,7 @@
             array(
                 'id' => 'coris_cdo_admin_index',
                 'title' => 'Configurações do Plugin',
-                'callback' => array($this->callbacks, 'corisCdoAdminSection'),
+                'callback' => array($this->callbacks_mngr, 'adminSectionManager'),
                 'page' => 'coris-cdo-plugin'
             )
         );
@@ -121,6 +133,20 @@
                 )
             )
         );
+
+        foreach($this->managers as $key => $value){
+            $args[] = array(
+                'id' => $key,
+                'title' => $value,
+                'callback' => array($this->callbacks_mngr, 'checkboxField'),
+                'page' => 'coris-cdo-plugin',
+                'section' => 'coris_cdo_admin_index',
+                'args' => array(
+                    'label_for' => $key,
+                    'class' => 'ui-toggle'
+                )
+            ); 
+        }
 
         $this->settings->setFields($args);
     }

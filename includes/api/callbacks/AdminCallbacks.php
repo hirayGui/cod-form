@@ -21,9 +21,9 @@
         return $input;
     }
 
-    public function corisCdoAdminSection(){
-        echo 'Configurações de Login Coris';
-    }
+    // public function corisCdoAdminSection(){
+    //     echo 'Configurações de Login Coris';
+    // }
 
     public function corisCdoUser(){
         $value =  esc_attr(get_option('coris_user'));  
