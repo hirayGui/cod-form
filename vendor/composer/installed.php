@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'gizo/coris-cdo-plugin',
+        'name' => 'gizo/cdo-form',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'd76f70285e4c5ff89a40d4911ee542c46dbc2072',
+        'reference' => '199b6cda2ad5666dbf7e194d16e233886a78d6fb',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'gizo/coris-cdo-plugin' => array(
+        'gizo/cdo-form' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'd76f70285e4c5ff89a40d4911ee542c46dbc2072',
+            'reference' => '199b6cda2ad5666dbf7e194d16e233886a78d6fb',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

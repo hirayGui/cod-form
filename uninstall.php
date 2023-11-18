@@ -3,7 +3,7 @@
 /**
  * Ativado quando o plugin é desinstalado
  * 
- * @package CorisCDOPlugin
+ * @package CDOForm
  */
 
 if(!defined('WP_UNINSTALL_PLUGIN')){

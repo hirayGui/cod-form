@@ -1,5 +1,5 @@
 <div class="wrap">
-    <h1>Coris CDO Plugin</h1>
+    <h1>CDO Plugin</h1>
     <?php settings_errors();?>
 
     <ul class="nav nav-tabs">
@@ -11,8 +11,8 @@
         <div id="tab-1" class="tab-pane active">
             <form method="post" action="options.php">
                 <?php 
-                    settings_fields('coris_cdo_plugin_settings');
-                    do_settings_sections('coris-cdo-plugin');
+                    settings_fields('cdo_form_settings');
+                    do_settings_sections('cdo-form');
                     submit_button();
                 ?>
             </form>

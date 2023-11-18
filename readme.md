@@ -1,3 +1,3 @@
-# Coris CDO Plugin
+# CDO Form
 
-Este plugin permite que o site possa fazer requisições ao webservice do Coris e apresentar informações de viagens de acordo com o input do usuário.
+Plugin permite que formulário possa consultar produtos do woocommerce

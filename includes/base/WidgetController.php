@@ -1,19 +1,19 @@
 <?php 
 
 /**
- * @package CorisCDOPlugin
+ * @package CDOForm
  */
 
  namespace Inc\base;
 
  use Inc\base\BaseController; 
 
- use Inc\api\widgets\CorisWidget;
+ use Inc\api\widgets\FormWidget;
 
  class WidgetController extends BaseController{
     
     public function register(){
-        $coris_widget = new CorisWidget();
-        $coris_widget->register();
+        $form_widget = new FormWidget();
+        $form_widget->register();
     }
  }

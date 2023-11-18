@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * @package CorisCDOPlugin
+ * @package CDOForm
  */
 
  namespace Inc\api\callbacks;
@@ -17,22 +17,22 @@
         return require_once("$this->plugin_path/templates/widget.php");
     }
 
-    public function corisCdoOptionsGroup($input){
+    public function cdoOptionsGroup($input){
         return $input;
     }
 
-    // public function corisCdoAdminSection(){
-    //     echo 'Configurações de Login Coris';
+    // public function cdoCdoAdminSection(){
+    //     echo 'Configurações de Login cdo';
     // }
 
-    public function corisCdoUser(){
-        $value =  esc_attr(get_option('coris_user'));  
-        echo '<input type="text" class="regular-text" name="coris_user" value="'. $value .'" placeholder="Insira seu usuário Coris"/>';
+    public function cdoUser(){
+        $value =  esc_attr(get_option('cdo_user'));  
+        echo '<input type="text" class="regular-text" name="cdo_user" value="'. $value .'" placeholder="Insira seu usuário cdo"/>';
     }
 
-    public function corisCdoPassword(){
-        $value =  esc_attr(get_option('coris_password'));  
-        echo '<input type="password" class="regular-text" name="coris_password" value="'. $value .'" placeholder="Insira sua senha Coris"/>';
+    public function cdoPassword(){
+        $value =  esc_attr(get_option('cdo_password'));  
+        echo '<input type="password" class="regular-text" name="cdo_password" value="'. $value .'" placeholder="Insira sua senha cdo"/>';
     }
     
  }

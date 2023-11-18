@@ -1,6 +1,6 @@
 {
-    "name": "gizo/coris-cdo-plugin",
-    "description": "Plugin que possibilita que o sistema possa fazer requisições ao webservice coris e apresentar seus resultados ao usuário.",
+    "name": "gizo/cdo-form",
+    "description": "Plugin permite que formulário consulte produtos do woocommerce.",
     "type": "project",
     "license": "GPL",
     "autoload": {

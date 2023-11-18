@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * @package CorisCDOPlugin
+ * @package CDOForm
  */
 
  namespace Inc\pages;
@@ -45,10 +45,10 @@
     public function setPages(){
         $this->pages = array(
             array(
-                'page_title' => 'Coris CDO Plugin',
-                'menu_title' => 'Coris CDO',
+                'page_title' => 'CDO Form',
+                'menu_title' => 'CDO Form',
                 'capability' => 'manage_options',
-                'menu_slug' => 'coris-cdo-plugin',
+                'menu_slug' => 'cdo-form',
                 'callback' => array($this->callbacks, 'adminDashboard'),
                 'icon_url' => 'dashicons-store',
                 'position' => 110
@@ -59,11 +59,11 @@
     public function setSubpages(){
         $this->subpages = array(
             array(
-                'parent_slug' => 'coris-cdo-plugin',
+                'parent_slug' => 'cdo-form',
                 'page_title' => 'Widgets',
                 'menu_title' => 'Widgets',
                 'capability' => 'manage_options',
-                'menu_slug' => 'coris-cdo-widget',
+                'menu_slug' => 'cdo_form_widget',
                 'callback' => array($this->callbacks, 'adminWidget'),
             )
         );
@@ -73,22 +73,22 @@
     public function setSettings(){
         $args = array(
             array(
-                'option_group' => 'coris_cdo_plugin_settings',
-                'option_name' => 'coris_user',
-                'callback' => array($this->callbacks, 'corisCdoOptionsGroup')
+                'option_group' => 'cdo_form_settings',
+                'option_name' => 'cdo_user',
+                'callback' => array($this->callbacks, 'CdoOptionsGroup')
             ),
             array(
-                'option_group' => 'coris_cdo_plugin_settings',
-                'option_name' => 'coris_password',
-                'callback' => array($this->callbacks, 'corisCdoOptionsGroup')
+                'option_group' => 'cdo_form_settings',
+                'option_name' => 'cdo_password',
+                'callback' => array($this->callbacks, 'CdoOptionsGroup')
             )
         );
 
         foreach($this->managers as $key => $value){
             $args[] = array(
-                'option_group' => 'coris_cdo_plugin_settings',
+                'option_group' => 'cdo_form_settings',
                 'option_name' => $key,
-                'callback' => array($this->callbacks_mngr, 'cehckboxSanitize')
+                'callback' => array($this->callbacks_mngr, 'checkboxSanitize')
             ); 
         }
 
@@ -98,10 +98,10 @@
     public function setSections(){
         $args = array(
             array(
-                'id' => 'coris_cdo_admin_index',
+                'id' => 'cdo_admin_index',
                 'title' => 'Configurações do Plugin',
                 'callback' => array($this->callbacks_mngr, 'adminSectionManager'),
-                'page' => 'coris-cdo-plugin'
+                'page' => 'cdo-form'
             )
         );
 
@@ -111,24 +111,24 @@
     public function setFields(){
         $args = array(
             array(
-                'id' => 'coris_user',
-                'title' => 'Usuário Coris',
-                'callback' => array($this->callbacks, 'corisCdoUser'),
-                'page' => 'coris-cdo-plugin',
-                'section' => 'coris_cdo_admin_index',
+                'id' => 'cdo_user',
+                'title' => 'Usuário cdo',
+                'callback' => array($this->callbacks, 'cdoUser'),
+                'page' => 'cdo-form',
+                'section' => 'cdo_admin_index',
                 'args' => array(
-                    'label_for' => 'coris_user',
+                    'label_for' => 'cdo_user',
                     'class' => 'login-class'
                 )
             ),
             array(
-                'id' => 'coris_password',
+                'id' => 'cdo_password',
                 'title' => 'Senha',
-                'callback' => array($this->callbacks, 'corisCdoPassword'),
-                'page' => 'coris-cdo-plugin',
-                'section' => 'coris_cdo_admin_index',
+                'callback' => array($this->callbacks, 'cdoPassword'),
+                'page' => 'cdo-form',
+                'section' => 'cdo_admin_index',
                 'args' => array(
-                    'label_for' => 'coris_password',
+                    'label_for' => 'cdo_password',
                     'class' => 'login-class'
                 )
             )
@@ -139,8 +139,8 @@
                 'id' => $key,
                 'title' => $value,
                 'callback' => array($this->callbacks_mngr, 'checkboxField'),
-                'page' => 'coris-cdo-plugin',
-                'section' => 'coris_cdo_admin_index',
+                'page' => 'cdo-form',
+                'section' => 'cdo_admin_index',
                 'args' => array(
                     'label_for' => $key,
                     'class' => 'ui-toggle'

@@ -1,7 +1,7 @@
 <?php 
 
 /**
- * @package CorisCDOPlugin
+ * @package CDOForm
  */
 
  namespace Inc;
